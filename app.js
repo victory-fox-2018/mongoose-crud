@@ -14,6 +14,11 @@ if(process.env.NODE_ENV === 'test') {
     database = process.env.DATABASE_PROD
 }
 mongoose.connect(database, { useNewUrlParser: true })
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+  console.log('Database is Connecting')
+});
 
 app.use(express.urlencoded({extended: false}))
 app.use(express.json())
