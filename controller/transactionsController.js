@@ -28,7 +28,7 @@ module.exports = {
       }
       else{
         res.status(500).json({
-          msg : "failed updating data"
+          msg : "failed adding data"
         });
       }
     });
