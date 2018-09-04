@@ -13,6 +13,7 @@
   "dependencies": {
     "express": "^4.16.3",
     "mongo": "^0.1.0",
-    "mongoose": "^5.2.12"
+    "mongoose": "^5.2.12",
+    "mongoose-intl-phone-number": "^1.1.1"
   }
 }
