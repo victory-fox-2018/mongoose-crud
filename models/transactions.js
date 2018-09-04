@@ -3,18 +3,28 @@ const mongoose = require('mongoose'),
 
 const transScheme = new Schema({
     member: {
-        type: Schema.ObjectId,
-        ref: 'Customer'
+        type: Schema.Types.ObjectId,
+        ref: 'Customer',
+        required: true
     },
-    days: Number,
-    out_date: Date,
-    date_date: Date,
+    days: {
+        type: Number,
+        required: true
+    },
+    out_date: {
+        type: Date,
+        required: true,
+        default : Date.now
+    },
+    due_date: Date,
     in_date: Date,
     fine: Number,
     booklist: [{
-        type: Schema.ObjectId,
+        type: Schema.Types.ObjectId,
         ref: 'Book'
     }]
+}, {
+    timestamps: true
 });
 
 const Transaction = mongoose.model('Transaction', transScheme)

@@ -7,6 +7,8 @@ const bookScheme = new Schema({
     author: String,
     category: String,
     stock: Number
+}, {
+    timestamps: true
 });
 
 const Book = mongoose.model('Book', bookScheme)

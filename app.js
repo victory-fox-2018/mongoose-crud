@@ -8,6 +8,7 @@ const createError = require('http-errors'),
 const indexRouter = require('./routes/index'),
     booksRouter = require('./routes/books'),
     customersRouter = require('./routes/customers'),
+    transactionsRouter = require('./routes/transactions'),
     app = express();
     
 mongoose.connect('mongodb://localhost:27017/library');
@@ -22,6 +23,7 @@ app
 app
   .use('/', indexRouter)
   .use('/books', booksRouter)
+  .use('/transactions', transactionsRouter)
   .use('/customers', customersRouter);
 
 

@@ -7,6 +7,8 @@ const custScheme = new Schema({
     address: String,
     zipcode: String,
     phone: String
+}, {
+    timestamps: true
 });
 
 const Customer = mongoose.model('Customer', custScheme)
