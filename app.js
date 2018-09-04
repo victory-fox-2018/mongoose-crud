@@ -16,7 +16,9 @@ var app = express();
 
 //---------------------------Mongoose connection -----manually added
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost:27017/library-mongoose');
+mongoose.connect('mongodb://localhost:27017/library-mongoose', {
+  useNewUrlParser : true
+});
 
 const db = mongoose.connection;
 
@@ -32,7 +34,7 @@ app.use(express.urlencoded({ extended: false }));
 // app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/', indexRouter);
+//app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/books',bookRouter); // manually added
 
