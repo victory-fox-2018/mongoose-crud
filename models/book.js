@@ -9,16 +9,21 @@ const BookSchema = new Schema ({
         required : true
     },
     title : {
-        type : String 
+        type : String,
+        required : true 
     },
     author : {
-        type : String
+        type : String,
+        required : true
+
     },
     category : {
-        type : String
+        type : String,
+        required : true
     },
     stock : {
-        type : Number
+        type : Number,
+        required :true
     }
 },{
     timestamps : true
