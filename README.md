@@ -129,7 +129,7 @@ output :
 ```
 
 <hr>
-List of Customer routes:
+List of Transaction routes:
 
 | Route                        |  HTTP  | Desription                                                      |
 | ---------------------------- |:------:| --------------------------------------------------------------- |
