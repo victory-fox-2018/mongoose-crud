@@ -25,8 +25,8 @@ module.exports = {
 
     getAllTrasaction: function(req, res) {
         Transaction.find({})
-        .populate('member')
-        // .populate(['member', 'booklist'])
+        // .populate('member')
+        .populate(['member', 'booklist'])
         .then((result) => {
             res.status(200).json({
                 msg: "Data all transaction",
@@ -48,12 +48,11 @@ module.exports = {
         if(req.body.due_date) objTransaction.due_date = req.body.due_date;
         if(req.body.in_date) objTransaction.in_date= req.body.in_date;
         if(req.body.fine) objTransaction.fine= req.body.fine;
+        if(req.body.booklist) objTransaction.booklist= req.body.booklist;
 
       Transaction.updateOne(
             { _id: id },
-            { $set: objTransaction,
-              $push: {booklist: req.body.booklist} 
-            }
+            { $set: objTransaction }
         )
         .then((result) => {
             res.status(200).json({
