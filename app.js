@@ -21,8 +21,8 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/', indexRouter);
 app.use('/books', booksRouter);
-//app.use('/customers', customersRouter);
-//app.use('/transactions', transactionsRouter);
+app.use('/customers', customersRouter);
+app.use('/transactions', transactionsRouter);
 
 app.listen(3000, () => {
   console.log('listening on port 3000!')
