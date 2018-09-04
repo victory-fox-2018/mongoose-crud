@@ -4,11 +4,8 @@ const express = require('express')
 const app = require('express')()
 const morgan = require('morgan')
 const mongoose = require('mongoose')
-
-app.use(express.urlencoded({extended: false}))
-app.use(express.json())
-app.use(cors())
-app.use(morgan('dev'))
+const router = require('./routes')
+const port = process.env.PORT || 3000
 
 let database = process.env.DATABASE_DEV
 if(process.env.NODE_ENV === 'test') {
@@ -18,7 +15,11 @@ if(process.env.NODE_ENV === 'test') {
 }
 mongoose.connect(database, { useNewUrlParser: true })
 
-const port = process.env.PORT || 3000
+app.use(express.urlencoded({extended: false}))
+app.use(express.json())
+app.use(cors())
+app.use(morgan('dev'))
+app.use('/', router)
 
 app.listen(port, () => {
     console.log(`Running in ${port}`)
