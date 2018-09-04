@@ -4,10 +4,13 @@ const Transaction = require('../models/transactionsModel');
 
 module.exports = {
   findAll : function(req,res){
-    Transaction.find({},(err,users)=>{
+    Transaction.find({})
+    .populate('booklist')
+    .populate('member')
+    .exec((err,data)=>{
       if(!err){
         res.status(200).json({
-          data : users
+          data : data
         });
       }
       else{
@@ -23,7 +26,8 @@ module.exports = {
     Transaction.create(obj, function (err, instance) {
       if(!err){
         res.status(201).json({
-          msg : "success adding data"
+          msg : "success adding data",
+          data : instance
         });
       }
       else{
