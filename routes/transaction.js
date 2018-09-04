@@ -3,7 +3,7 @@ const { findAll, insert, remove, update } = require('../controllers/transactionC
 
 routes.get('/', findAll)
 routes.post('/', insert)
-routes.post('/remove/:id', remove)
-routes.post('/update/:id', update)
+routes.delete('/remove/:id', remove)
+routes.put('/update/:id', update)
 
 module.exports = routes

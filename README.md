@@ -22,5 +22,31 @@
 | /customers/delete/:id   | DELETE | Delete a customer                   |
 
 
+### TRANSACTIONS FITURE
+
+|       ROUTE              |  HTTP  |             DESCRIPTION             |
+|--------------------------|--------|-------------------------------------|
+| /transactions/           | GET    | Get all transaction                 |
+| /transactions            | POST   | Create a transaction                |
+| /transactions/update/:id | PUT    | Update a customer                   |
+| /transactions/delete/:id | DELETE | Delete a customer                   |
+
+#### NOTE :
+
+```
+Transactions insert fiturs : 
+
+Ketika insert atau create transactions
+days     => 3
+out_date => 2018/09/19
+booklist => idBook yang di insert
+in_date  => 2018/09/27
+
+Dimana nilai fine adalah
+due_date = out_date + days
+fine     = in_date - due_date  
+```
+
+
 
 

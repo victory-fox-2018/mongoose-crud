@@ -13,13 +13,13 @@ const transactionSchema = new Schema({
     timestamps : true
 })
 
+// transactionSchema.pre('save', function(next) {
 
-transactionSchema.pre('save', function(next) {
-  let dueDate   = new Date()
-  this.due_date = dueDate.setDate(dueDate.getDate()+this.days)
-  next();
-});
+//   let dueDate   = new Date()
+//   this.due_date = dueDate.setDate(dueDate.getDate()+this.days)
 
+//   next();
+// });
 
 const Transaction = mongoose.model('Transaction', transactionSchema)
 
