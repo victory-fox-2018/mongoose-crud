@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 
 const bookRoute = require('./routes/bookRoute')
 const customerRoute = require('./routes/customerRoute')
+const transactionRoute = require('./routes/transactionRoute')
 
 const app = express()
 
@@ -19,6 +20,7 @@ db.once('open', function() {
 
 app.use('/books', bookRoute)
 app.use('/customers', customerRoute)
+app.use('/transactions', transactionRoute)
 
 app.listen(3000, () => {
     console.log('running on port 3000');
