@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const transaction = new Schema({ 
-    member: { type: Schema.Types.ObjectId, ref: 'Customer'},
+    member: String,
     days: Number,
     out_date: {type: Date, default: Date.now},
-    in_date: Date,
+    in_date: {type: Date, default: null},
     fine: Number,
     booklist: [{ type: Schema.Types.ObjectId, ref: 'Book'}]
 },{
