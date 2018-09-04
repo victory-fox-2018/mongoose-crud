@@ -14,6 +14,11 @@ router.post('/',(req,res)=>{
     TransactionController.insertData(req,res);
 })
 
+// update data
+router.put('/edit/:id',(req,res)=>{
+    TransactionController.updateData(req,res);
+})
+
 // delete data
 router.delete('/delete/:id',(req,res)=>{
     TransactionController.deleteData(req,res);

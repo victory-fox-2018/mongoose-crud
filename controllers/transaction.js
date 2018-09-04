@@ -36,9 +36,27 @@ class TransactionController {
            }) 
     }
 
+    // update data
+    static updateData(req,res){
+        let updateId = ObjectId(req.params.id);
+
+        Transaction.findByIdAndUpdate({_id:updateId},{
+            member : req.body['member'],
+            days : req.body['days'],
+            fine : req.body['fine'],
+            booklist : req.body['booklist']
+        })
+        .then(row =>{
+            res.status(200).json({msg : 'Data has been updated'})
+        })
+        .catch(err =>{
+            res.status(500).json({ msg : err})
+        })
+    }
+
     // delete data
     static deleteData(req,res){
-        let deleteId = ObjectId(req.params.id)
+        let deleteId = ObjectId(req.params.id);
 
         Transaction.deleteOne({_id : deleteId})
             .then(row =>{
