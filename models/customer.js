@@ -14,13 +14,16 @@ const CustomerSchema = new Schema ({
         required : true
     },
     address : {
-        type : String
+        type : String,
+        required : true
     },
     zipcode : {
-        type : String
+        type : String,
+        required : true
     },
     phone : {
-        type : String
+        type : String,
+        required : true
     }
 },{
     timestamps : true

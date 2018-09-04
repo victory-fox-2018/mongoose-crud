@@ -7,7 +7,8 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var bookRouter = require('./routes/books'); // manually added
-var customerRouter = require('./routes/customers') // manually added
+var customerRouter = require('./routes/customers'); // manually added
+var transactionRouter = require('./routes/transactions'); // manually added
 
 var app = express();
 
@@ -39,6 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/users', usersRouter);
 app.use('/books',bookRouter); // manually added
 app.use('/customers',customerRouter) // manually added
+app.use('/transactions',transactionRouter) // manually added
 
 // manually added to get data from req.body
 app.use(express.urlencoded({extended:false}));
