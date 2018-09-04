@@ -52,8 +52,8 @@ output :
 <hr>
 List of Customer routes:
 
-| Route                 |  HTTP  | Desription                                                   |
-| --------------------- |:------:| ------------------------------------------------------------ |
+| Route                     |  HTTP  | Desription                                                   |
+| ------------------------- |:------:| ------------------------------------------------------------ |
 | /customers                | GET    | Show All Customers Data                                      |
 | /customers/:id            | GET    | Get a single Customers info                                  |
 | /customers/:id            | DELETE | Delete Single Customer                                       |
@@ -62,7 +62,7 @@ List of Customer routes:
 
 Get All Customers Data
 ```
-Example :
+Example GET:
 http://localhost:3000/customers
 
 output :
@@ -108,7 +108,7 @@ output :
 
 Get a Single Customers Info
 ```
-Example :
+Example GET:
 http://localhost:3000/customers/5b8e492370b3117174744147
 
 output : 
@@ -123,6 +123,84 @@ output :
         "phone": "01234567890",
         "createdAt": "2018-09-04T08:58:11.730Z",
         "updatedAt": "2018-09-04T08:58:33.205Z",
+        "__v": 0
+    }
+}
+```
+
+<hr>
+List of Customer routes:
+
+| Route                        |  HTTP  | Desription                                                      |
+| ---------------------------- |:------:| --------------------------------------------------------------- |
+| /transactions                | GET    | Show All Transactions Data                                      |
+| /transactions/:id            | GET    | Get a single Transactions info                                  |
+| /transactions/:id            | DELETE | Delete Single Transaction                                       |
+| /transactions                | POST   | Create a Transaction                                            |
+| /transactions/:id            | PUT    | Update a Transaction with new info                              |
+
+Get All Transactions Data
+```
+Example GET:
+http://localhost:3000/transactions/
+
+output:
+{
+    "message": "Found All Transactions",
+    "data": [
+        {
+            "booklist": [
+                "5b8e4348dbda9f699bf64768",
+                "5b8e011ee99dfd2ae4bc666b"
+            ],
+            "_id": "5b8e54512b7b9e02e1dc4745",
+            "member": "5b8e492370b3117174744147",
+            "days": 10,
+            "fine": 5000,
+            "out_date": "2018-09-04T09:45:53.377Z",
+            "due_date": "2018-09-04T09:45:53.377Z",
+            "in_date": "2018-09-04T09:45:53.377Z",
+            "__v": 0
+        },
+        {
+            "booklist": [
+                "5b8e4348dbda9f699bf64768",
+                "5b8e011ee99dfd2ae4bc666b"
+            ],
+            "_id": "5b8e54ca65303d03487957f4",
+            "member": "5b8e492370b3117174744147",
+            "days": 10,
+            "fine": 5000,
+            "out_date": "2018-09-04T09:47:54.346Z",
+            "due_date": "2018-09-04T09:47:54.347Z",
+            "in_date": "2018-09-04T09:47:54.347Z",
+            "__v": 0
+        }
+    ]
+}
+```
+
+Get Transaction Info
+
+```
+Example GET:
+http://localhost:3000/transactions/5b8e54512b7b9e02e1dc4745
+
+output:
+{
+    "message": "Found It",
+    "data": {
+        "booklist": [
+            "5b8e4348dbda9f699bf64768",
+            "5b8e011ee99dfd2ae4bc666b"
+        ],
+        "_id": "5b8e54512b7b9e02e1dc4745",
+        "member": "5b8e492370b3117174744147",
+        "days": 10,
+        "fine": 5000,
+        "out_date": "2018-09-04T09:45:53.377Z",
+        "due_date": "2018-09-04T09:45:53.377Z",
+        "in_date": "2018-09-04T09:45:53.377Z",
         "__v": 0
     }
 }
