@@ -37,16 +37,16 @@ module.exports = {
 
     updateCostumer: function(req, res) {
         let id = req.params.id
-        let objBook = {}
-        if(req.body.memberId) objBook.memberId = req.body.memberId;
-        if(req.body.name) objBook.name = req.body.name;
-        if(req.body.address) objBook.address = req.body.address;
-        if(req.body.zipcode) objBook.zipcode = req.body.zipcode;
-        if(req.body.phone) objBook.phone= req.body.phone;
+        let objCostumer = {}
+        if(req.body.memberId) objCostumer.memberId = req.body.memberId;
+        if(req.body.name) objCostumer.name = req.body.name;
+        if(req.body.address) objCostumer.address = req.body.address;
+        if(req.body.zipcode) objCostumer.zipcode = req.body.zipcode;
+        if(req.body.phone) objCostumer.phone= req.body.phone;
 
        Costumer.updateOne(
             { _id: id },
-            { $set: objBook }
+            { $set: objCostumer }
         )
         .then((result) => {
             res.status(200).json({

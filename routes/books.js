@@ -1,10 +1,10 @@
 var express = require('express');
 var router = express.Router();
-const { createBook, getAllBook, updateBook, deleteBook } = require('../controllers/bookController')
+;const { createTransaction, getAllTrasaction, updateTrasaction, deleteTranscation } = require('../controllers/transactionController')
 
-router.post('/', createBook);
-router.get('/', getAllBook);
-router.put('/:id', updateBook);
-router.delete('/:id', deleteBook)
+router.post('/', createTransaction);
+router.get('/', getAllTrasaction);
+router.put('/:id', updateTrasaction);
+router.delete('/:id', deleteTranscation);
 
 module.exports = router;
