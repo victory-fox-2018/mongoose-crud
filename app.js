@@ -7,6 +7,7 @@ mongoose.connect('mongodb://localhost:27017/mongoose-crud', {useNewUrlParser: tr
 
 const bookRouter = require('./routes/books');
 const customerRouter = require('./routes/customers');
+const transactionController = require('./routes/transaction');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use('/books', bookRouter);
 app.use('/customers', customerRouter);
+app.use('/transactions', transactionController);
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {
