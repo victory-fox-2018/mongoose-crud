@@ -1,5 +1,5 @@
-const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
 
 const customerSchema = new Schema({
   name: String,
@@ -7,6 +7,8 @@ const customerSchema = new Schema({
   address: String,
   zipcode: String,
   phone: String
+}, {
+  timestamps: true
 });
 
 const Customer = mongoose.model('Customer', customerSchema)
