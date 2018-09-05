@@ -4,16 +4,19 @@ const Transaction = require('../models/transaction');
 module.exports = {
   findAll: function(req,res) {
     Transaction.find()
-      .then(transactions => {
-        res.status(200).json({
-          message: 'find all success!',
-          data: transactions
-        })
-      })
-      .catch(err => {
-        res.status(500).json({
-          message: err.message
-        })
+      .populate('booklist')
+      .populate('member')
+      .exec(function(err, transactions) {
+        if (!err) {
+          res.status(200).json({
+            message: 'find all success!',
+            data: transactions
+          })
+        } else {
+          res.status(500).json({
+            message: err.message
+          })
+        }
       })
   },
   create: function(req,res) {
