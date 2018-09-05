@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId
 
 module.exports = {
     getAll: function(req,res){
-        Transactions.find()
+        Transactions.find().populate('Customer')
             .then(transactions =>{
                 res.status(200).json({
                     message: "Found All Transactions",
@@ -26,7 +26,6 @@ module.exports = {
 
         let booklist = req.body.booklist
 
-        // console.log(typeof booklist)
         if(typeof booklist === 'string'){
             newTransaction.booklist.push(ObjectId(booklist))
         }else{
